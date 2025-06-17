@@ -1,0 +1,140 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between; /* Align title to left, controls to right */
+  align-items: center;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.App-header .controls {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Spacing between control elements */
+}
+
+.App-header .controls p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.App-header .controls button {
+  padding: 8px 15px;
+  font-size: 0.9em;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.App-header .controls button:hover {
+  background-color: #21a1f1;
+}
+
+
+.App-main {
+  flex-grow: 1; /* Takes up remaining vertical space */
+  background-color: #ffffff;
+  /* border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; */
+  overflow: hidden; /* Ensures canvas doesn't cause scrollbars on App-main */
+}
+
+.App-footer {
+  padding: 10px;
+  background-color: #282c34;
+  color: white;
+  font-size: 0.8em;
+}
+
+/* Style for React Flow parent container in SwarmCanvas if needed,
+   but SwarmCanvas itself is set to 100% height/width.
+   The direct parent is App-main. */
+
+/* Node specific styles (can also be done via node.style in the store) */
+.react-flow__node-default {
+  border: 1px solid #777;
+  padding: 10px;
+  border-radius: 5px;
+  background: white;
+  font-size: 12px;
+}
+
+.react-flow__node-default.active {
+  background: #90EE90; /* LightGreen */
+  border-color: darkgreen;
+}
+
+.react-flow__node-default.tool_calling {
+  border: 2px solid blue;
+}
+
+.react-flow__node-default.thinking {
+  opacity: 0.7;
+  background: #ADD8E6; /* LightBlue */
+}
+
+.react-flow__node-default.inactive {
+   background: #D3D3D3; /* LightGray */
+}
+
+/* Edge styling */
+.react-flow__edge-path {
+  stroke-width: 1.5;
+}
+
+/* Custom node content styling (if using data.label directly) */
+.react-flow__node-default .node-label {
+  font-weight: bold;
+}
+.react-flow__node-default .node-description {
+  font-size: 0.8em;
+  color: #555;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.react-flow__node-default .node-status {
+  font-size: 0.75em;
+  color: #333;
+  margin-top: 4px;
+  padding: 2px;
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 3px;
+}
+.react-flow__node-default .node-tools {
+  font-size: 0.7em;
+  color: #444;
+  margin-top: 4px;
+}
+.react-flow__node-default .node-tools strong {
+  display: block;
+  margin-bottom: 2px;
+}
+.react-flow__node-default .node-tools ul {
+  list-style: none;
+  padding-left: 0;
+  margin:0;
+}
+.react-flow__node-default .node-tools li {
+  padding: 1px 0;
+}
+
+/* Ensure the ReactFlow component takes full space of its container */
+/* SwarmCanvas.jsx already has inline style for this, but good to be aware */
+/* .swarm-canvas-container > .react-flow {
+  height: 100%;
+  width: 100%;
+} */
