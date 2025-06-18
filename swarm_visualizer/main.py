@@ -275,6 +275,6 @@ if __name__ == "__main__":
 # to `asyncio.create_task(emitter.emit(...))` within its synchronous wrappers.
 # I will make this change to `monkey_patcher.py` next.`swarm_visualizer/main.py` has been overwritten to set up a FastAPI server with a WebSocket endpoint. It also includes logic to run a mock Swarm example on startup, which should now emit events through the updated WebSocket-aware emitter.
 
-The crucial point raised in the comments of the generated `main.py` is that `monkey_patcher.py`'s synchronous wrapper functions will be calling the now-asynchronous `emitter.emit()`. This requires careful handling. The simplest way to address this is to modify `monkey_patcher.py` so that its calls to `emitter.emit()` are wrapped in `asyncio.create_task()`. This will allow the synchronous patched methods to schedule the async `emit` call on FastAPI's event loop without blocking.
+# The crucial point raised in the comments of the generated `main.py` is that `monkey_patcher.py`'s synchronous wrapper functions will be calling the now-asynchronous `emitter.emit()`. This requires careful handling. The simplest way to address this is to modify `monkey_patcher.py` so that its calls to `emitter.emit()` are wrapped in `asyncio.create_task()`. This will allow the synchronous patched methods to schedule the async `emit` call on FastAPI's event loop without blocking.
 
-I will now modify `monkey_patcher.py` to make this change. This is a critical adjustment for the backend to work correctly with FastAPI.
+# I will now modify `monkey_patcher.py` to make this change. This is a critical adjustment for the backend to work correctly with FastAPI.
